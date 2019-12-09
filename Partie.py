@@ -5,18 +5,23 @@ Created on Sat Nov 23 16:59:23 2019
 
 @author: yasmine
 """
-
+from JeuCartes import JeuCartes
 class Partie:
     def __init__(self,listeJoueurs,nomDuJeu,nbreCartes=32,nbreMaxPli=1000):
-        pass
+        self.listeJoueurs= listeJoueurs
+        self.nomDuJeu= nomDuJeu
+        self.jeu= JeuCartes(nbreCartes)
+        self.nbreMaxPli= nbreMaxPli
+        
     
     
     def getNbreJoueur(self):
-        pass
+        return len(self.listeJoueurs)
     
     
     def getNomDuJeu(self):
-        pass
+        return self.nomDuJeu
+    
 
     def run(self):
         pass
@@ -30,9 +35,12 @@ class Partie:
 
 
     def finPartie(self,perdant=None,gagnant=None):
-        pass
-
+        if perdant == None:
+            print('Pas de gagant')
+        else:
+            perdant.incDefaiteJoueur()
+            gagnant.incVictoireJoueur()
         
         
     def __str__(self):
-        pass
+        return "le jeu est : {} , et les joueurs sont : {}".format(self.getNomDujeu(), self.listeJoueurs)

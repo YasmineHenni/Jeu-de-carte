@@ -20,25 +20,25 @@ class Joueur:
 
         
     def getVictoireJoueur(self):
-         return self.victoires
+         return self.nombreVictoire
         
     def incVictoireJoueur(self):
         self.nombreVictoire+=1
         
     def getDefaiteJoueur(self):
-        return self.defaites
+        return self.nombreDefaite
     
     def incDefaiteJoueur(self):
         self.defaites+=1
         
-    def tirerCarteJOueur(self):
-        pass
+    def tirerCarteJoueur(self):
+        self.paquetJoueur.pop(i)
     
     def ajouterCarteDansPaquetJoueur(self, carte):
         self.paquetJoueur.append(carte)
         
-    def ajouterPaquetDansPaquetJoueur(self,paquetAAjouer):
-        pass
+    def ajouterPaquetDansPaquetJoueur(self,paquetAAjouter):
+        self.paquetJoueur.ajouterPaquetDansPaquet(paquetAAjouter)
     
     def __str__(self):
         return 'nom du joueur(se) : {}, son nombre de victoires est: {} et ses defaites :{}'.format(self.getPrenomJoueur(), self.getVictoireJoueur(), self.getDefaiteJoueur())           
@@ -47,8 +47,17 @@ class Joueur:
         return self.__str__()
     
     def listeCarte(self):
-        pass
+        return self.paquetJoueur
     
     def ClearPaquetJoueur(self):
-        pass
+        self.paquetJoueur.clearListeCartes()
+        
+        
+if __name__=='__main__':
+    
+    j=Joueur('laurent')
+    print(j)
+    
+    
+    
         
